@@ -1,6 +1,6 @@
 {
     "name": "todoist-subscriber",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "REST API that handles hook request from todoist and write them into the queue.",
     "main": "dist/index.js",
     "scripts": {
