@@ -1,0 +1,41 @@
+{
+    "name": "todoist-subscriber",
+    "version": "0.1.0",
+    "description": "REST API that handles hook request from todoist and write them into the queue.",
+    "main": "dist/index.js",
+    "scripts": {
+        "lint": "eslint --ext .ts .",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/fabulator/todoist-subscriber.git"
+    },
+    "author": "Michal Ozogán <michal@ozogan.eu>",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/fabulator/todoist-subscriber#readme",
+    "keywords": [
+        "todoist"
+    ],
+    "devDependencies": {
+        "@socifi/eslint-config": "^2.10.0",
+        "@types/bull": "^3.10.5",
+        "@types/koa": "^2.0.51",
+        "@types/node": "^12.11.7"
+    },
+    "dependencies": {
+        "bull": "^3.11.0",
+        "class-transformer": "^0.2.3",
+        "class-validator": "^0.10.2",
+        "dotenv": "^8.2.0",
+        "kafkajs": "^1.11.0",
+        "koa": "^2.10.0",
+        "koa-bodyparser": "^4.2.1",
+        "koa-router": "^7.4.0",
+        "reflect-metadata": "^0.1.13",
+        "routing-controllers": "^0.8.0",
+        "typedi": "^0.8.0",
+        "winston": "^3.2.1"
+    }
+}

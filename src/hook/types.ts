@@ -1,0 +1,43 @@
+export type EventName = 'item:added' | 'item:completed';
+
+export type HookBody = {
+    event_name: EventName,
+    initiator: {
+        is_premium: boolean,
+        image_id: string,
+        id: number,
+        full_name: string,
+        email: string,
+    },
+    version: string,
+    user_id: number,
+    event_data: {
+        legacy_project_id: number,
+        is_deleted: number,
+        assigned_by_uid: number,
+        labels: number[],
+        sync_id: null | number,
+        section_id: null | number,
+        in_history: number,
+        child_order: number,
+        date_added: string,
+        checked: number,
+        id: number,
+        content: string,
+        date_completed: null | string,
+        user_id: number,
+        url: string,
+        due: null | {
+            date: string,
+            timezone: null,
+            is_recurring: boolean,
+            string: string,
+            lang: 'en',
+        },
+        priority: number,
+        parent_id: null | number,
+        responsible_uid: null | number,
+        project_id: number,
+        collapsed: number,
+    },
+}
