@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] 2019-10-30
+### Changed
+- [97f4c4f](https://github.com/fabulator/todoist-subscriber/commit/97f4c4fa98371a19f5e50a46b28eb36e4bc397f7) More information in log.
+
 ## [1.1.0] 2019-10-30
 ### Added
 - [50fd23a](https://github.com/fabulator/todoist-subscriber/commit/50fd23a27cc5b5ae0e242176e4b1a7b8f25896ae) Validation of requests
