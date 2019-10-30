@@ -5,6 +5,7 @@ WORKDIR /srv
 COPY . /srv/
 RUN npm ci
 RUN npm run build
+RUN npm ci --production
 
 FROM node:12-alpine
 WORKDIR /srv

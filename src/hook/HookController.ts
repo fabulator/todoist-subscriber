@@ -1,35 +1,44 @@
-import crypto from 'crypto';
+import crypto, { Hmac } from 'crypto';
 import { Request } from 'koa';
+import { Inject } from 'typedi';
 import {
     Controller,
     Body,
     Post,
     Req,
 } from 'routing-controllers';
-import { logger } from '../logging';
+import { Logger } from '../logging';
 // @ts-ignore
 import { QueueService } from '../queue';
 import { HookBody } from './types';
 import RequestNotVerified from './RequestNotVerified';
 
-const { TODOIST_SECRET } = process.env;
-
-if (!TODOIST_SECRET) {
-    logger.warn('Todoist client secret is not in environment variables. Requests will not be verified.', { code: 'secret-key-missing' });
-}
-
-const hmac = crypto.createHmac('sha256', TODOIST_SECRET || '');
-
 @Controller()
 export default class HookController {
-    constructor(protected queue: QueueService) {}
+    protected hmac?: Hmac;
+
+    constructor(protected queue: QueueService, @Inject('logger') protected logger: Logger) {
+        this.queue = queue;
+        this.logger = logger;
+
+        const { TODOIST_SECRET } = process.env;
+
+        if (!TODOIST_SECRET) {
+            this.logger.warn(
+                'Todoist client secret is not in environment variables. Requests will not be verified.',
+                { code: 'secret-key-missing' },
+            );
+        }
+
+        this.hmac = TODOIST_SECRET ? crypto.createHmac('sha256', TODOIST_SECRET) : undefined;
+    }
 
     @Post('/hook')
     async post(@Body() body: HookBody, @Req() request: Request) {
-        if (TODOIST_SECRET) {
+        if (this.hmac) {
             // @ts-ignore
-            hmac.update(request.rawBody);
-            if (hmac.digest().toString('base64') !== request.headers['x-todoist-hmac-sha256']) {
+            this.hmac.update(request.rawBody);
+            if (this.hmac.digest().toString('base64') !== request.headers['x-todoist-hmac-sha256']) {
                 throw new RequestNotVerified();
             }
         }
