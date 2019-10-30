@@ -48,6 +48,7 @@ export default class ErrorMiddleware {
                 },
                 response: {
                     status: context.response.status,
+                    message: context.response.message,
                     body: context.body,
                 },
             });

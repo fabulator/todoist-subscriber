@@ -12,6 +12,6 @@ export default class DefaultResponseMiddleware {
                 code: `error-${context.response.status}`,
             };
         }
-        next();
+        await next();
     }
 }
