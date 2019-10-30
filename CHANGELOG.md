@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] 2019-10-30
+### Added
+- [50fd23a](https://github.com/fabulator/todoist-subscriber/commit/50fd23a27cc5b5ae0e242176e4b1a7b8f25896ae) Validation of requests
+- [50fd23a](https://github.com/fabulator/todoist-subscriber/commit/50fd23a27cc5b5ae0e242176e4b1a7b8f25896ae) DevNull queue provider for testing
+
+### Changed
+- [50fd23a](https://github.com/fabulator/todoist-subscriber/commit/50fd23a27cc5b5ae0e242176e4b1a7b8f25896ae) Logging to stdout and stderr
+
 ## [1.0.0] 2019-10-29
 ### Added
 - [21fc58e](https://github.com/fabulator/todoist-subscriber/commit/21fc58ed907d9281d2f0213aa9e132a5caa4f9a5) Automated deploy.
