@@ -7,7 +7,10 @@ export default class LoggerStaticFactory {
         return winston.createLogger({
             format: combine(timestamp(), logstash()),
             defaultMeta: {},
-            transports: [new winston.transports.Console()],
+            transports: [new winston.transports.Console({
+                consoleWarnLevels: ['error'],
+                stderrLevels: ['info', 'warn', 'debug'],
+            })],
         });
     }
 }

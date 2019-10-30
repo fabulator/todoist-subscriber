@@ -1,5 +1,5 @@
 export default class AppException extends Error {
-    protected prevException: Error;
+    protected prevException?: Error;
 
     protected code: string;
 
@@ -17,8 +17,8 @@ export default class AppException extends Error {
         code: string,
         level: string,
         data?: Record<string, string>,
-    }, exception: Error) {
-        super(`${message}: ${exception.message}`);
+    }, exception?: Error) {
+        super(`${message}${exception ? `: ${exception.message}` : ''}`);
         this.prevException = exception;
         this.code = code;
         this.level = level;
@@ -30,10 +30,12 @@ export default class AppException extends Error {
             message: this.message,
             code: this.code,
             level: this.level,
-            prevException: {
-                ...this.prevException,
-                stack: this.prevException.stack,
-            },
+            ...(this.prevException ? {
+                prevException: {
+                    ...this.prevException,
+                    stack: this.prevException.stack,
+                },
+            } : {}),
             stack: this.stack,
             ...(this.data ? { data: this.data } : {}),
         };
