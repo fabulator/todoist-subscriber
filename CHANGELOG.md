@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] 2019-10-30
+### Changed
+- [09d1cc5](https://github.com/fabulator/todoist-subscriber/commit/09d1cc501589fe8a0610298cb4456b64b26265b5) Make build smaller
+- [09d1cc5](https://github.com/fabulator/todoist-subscriber/commit/09d1cc501589fe8a0610298cb4456b64b26265b5) Handle secret during controller creating.
+
 ## [1.2.0] 2019-10-30
 ### Changed
 - [97f4c4f](https://github.com/fabulator/todoist-subscriber/commit/97f4c4fa98371a19f5e50a46b28eb36e4bc397f7) More information in log.
